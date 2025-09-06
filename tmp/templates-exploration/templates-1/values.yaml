@@ -121,3 +121,11 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+mysubchart:
+  dessert: parfait
+
+# declare values that can been globally across charts and subcharts
+# eg usage: {{ .Values.global.salad }}
+global:
+  salad: caesar
