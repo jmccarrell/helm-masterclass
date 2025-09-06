@@ -3,3 +3,10 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap
   {{- include "mychart.labels" . | indent 2 }}
+data:
+  {{- $files := .Files }}
+  {{- range tuple "config1.toml" "config2.toml" "config3.toml" }}
+  {{ . }}: |-
+    {{ $files.Get . }}
+  {{- end }}
+  data:
